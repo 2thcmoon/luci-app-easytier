@@ -138,7 +138,7 @@ function act_status()
 	if cached_webtag and cached_webtag ~= "" then
 		e.etwebtag = cached_webtag:gsub("[\r\n]+", "")
 	else
-		local easytierwebbin = uci:get_first("easytier", "easytier", "easytierwebbin") or "/usr/bin/easytier-web"
+		local easytierwebbin = uci:get_first("easytier", "easytier", "webbin") or "/usr/bin/easytier-web"
 		e.etwebtag = safe_exec(easytierwebbin .. " -V 2>/dev/null | sed 's/^[^0-9]*//'")
 		if e.etwebtag == "" or e.etwebtag == nil then e.etwebtag = "unknown" end
 		local f = io.open("/tmp/easytierweb.tag", "w")
